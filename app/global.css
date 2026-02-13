@@ -4,3 +4,32 @@
 @import 'heroui-native/styles';
 
 @source '../node_modules/heroui-native/lib';
+
+/* 
+    Fonts
+ */
+@theme {
+    /* 
+        Poppins
+    */
+    --font-poppins-thin: "PoppinsThin";
+    --font-poppins-light: "PoppinsLight";
+    --font-poppins-italic: "PoppinsItalic";
+    --font-poppins-regular: "PoppinsRegular";
+    --font-poppins-medium: "PoppinsMedium";
+    --font-poppins-semibold: "PoppinsSemiBold";
+    --font-poppins-bold: "PoppinsBold";
+    --font-poppins-extrabold: "PoppinsExtraBold";
+
+    /* 
+        Inter
+     */
+    --font-inter-thin: "InterThin";
+    --font-inter-light: "InterLight";
+    --font-inter-italic: "InterItalic";
+    --font-inter-regular: "InterRegular";
+    --font-inter-medium: "InterMedium";
+    --font-inter-semibold: "InterSemiBold";
+    --font-inter-bold: "InterBold";
+    --font-inter-extrabold: "InterExtraBold";
+}
