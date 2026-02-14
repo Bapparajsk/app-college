@@ -32,7 +32,6 @@ export default function FontProvider({ children }: { children: ReactNode }) {
     const onLayoutRootView = useCallback(async () => {
         if (fontsLoaded) {
             await SplashScreen.hideAsync();
-            console.log(fontsLoaded);
         }
     }, [fontsLoaded]);
 
