@@ -10,7 +10,7 @@ export default function RootLayout() {
       <HeroUINativeProvider config={{ devInfo: { stylingPrinciples: false } }}>
         <FontProvider>
           <Stack>
-            <Stack.Screen name="(tab)" />
+            <Stack.Screen name="(tab)" options={{ headerShown: false }}/>
           </Stack>
         </FontProvider>
       </HeroUINativeProvider>

@@ -1,32 +1,15 @@
-import { Ionicons } from "@expo/vector-icons";
 import { BottomTabBarProps } from "@react-navigation/bottom-tabs";
 import { NavigationRoute, ParamListBase } from "@react-navigation/native";
 import { useEffect, useMemo, useRef } from "react";
-import { TouchableOpacity, View } from "react-native";
+import { View } from "react-native";
 import Animated, {
-  LinearTransition,
   useAnimatedStyle,
   useSharedValue,
-  withSpring,
+  withSpring
 } from "react-native-reanimated";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
+import TabButton from "./TabButton";
 
-const AnimatedTouchableOpacity = Animated.createAnimatedComponent(TouchableOpacity);
-
-function getIconByRouteName(routeName: string, color: string) {
-  switch (routeName) {
-    case "index":
-      return <Ionicons name="home" size={22} color={color} />;
-    case "routing":
-      return <Ionicons name="navigate" size={22} color={color} />;
-    case "community":
-      return <Ionicons name="people" size={22} color={color} />;
-    case "setting":
-      return <Ionicons name="settings" size={22} color={color} />;
-    default:
-      return <Ionicons name="home" size={22} color={color} />;
-  }
-}
 
 const CustomNavBar: React.FC<BottomTabBarProps> = ({ state, navigation }) => {
   const insets = useSafeAreaInsets();
@@ -111,7 +94,7 @@ const CustomNavBar: React.FC<BottomTabBarProps> = ({ state, navigation }) => {
     >
       <View
         className="relative flex-row gap-2"
-        style={{ paddingHorizontal: 10, paddingVertical: 5, borderRadius: 999, backgroundColor: "#d1d5dc", marginRight: 10 }} // white background for contrast
+        style={{ paddingHorizontal: 10, paddingVertical: 5, borderRadius: 999, backgroundColor: "#d1d5dc", marginRight: 10 , opacity: 0.9}} // white background for contrast
       >
         {/* Animated background indicator - behind tabs */}
         <Animated.View
@@ -146,37 +129,6 @@ const CustomNavBar: React.FC<BottomTabBarProps> = ({ state, navigation }) => {
   );
 };
 
-function TabButton({
-  route,
-  isFocused,
-  onPress,
-  onLayout,
-  isSettingTab,
-}: {
-  route: NavigationRoute<ParamListBase, string>;
-  isFocused: boolean;
-  onPress: () => void;
-  onLayout: (event: any) => void;
-  isSettingTab?: boolean
-}) {
 
-  const activeBackgroundColor = isFocused ? "#000000" : "transparent"; // active tab background color
-
-  return (
-
-    <AnimatedTouchableOpacity
-      layout={LinearTransition.springify().mass(0.5)}
-      onLayout={onLayout}
-      onPress={onPress}
-      className="px-5 py-3.5 rounded-full flex-row items-center gap-1"
-      style={{ backgroundColor: isSettingTab ? activeBackgroundColor : "transparent", zIndex: 1 }} // ensure above indicator
-    >
-      {getIconByRouteName(
-        route.name,
-        isFocused ? "#EFF7F6" : "#000000" // icon color changes for visibility against indicator
-      )}
-    </AnimatedTouchableOpacity>
-  );
-}
 
 export default CustomNavBar;
