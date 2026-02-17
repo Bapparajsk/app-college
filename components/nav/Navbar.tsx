@@ -13,10 +13,10 @@ import TabButton from "./TabButton";
 
 const CustomNavBar: React.FC<BottomTabBarProps> = ({ state, navigation }) => {
   const insets = useSafeAreaInsets();
-  const position = useSharedValue(0); // left position of indicator
+  const position = useSharedValue(7); // left position of indicator
   const indicatorWidth = useSharedValue(0); // width of indicator
   const indicatorHeight = useSharedValue(0); // height of indicator
-  const opacity = useSharedValue(0); // opacity of indicator
+  const opacity = useSharedValue(1); // opacity of indicator
   const tabMeasurements = useRef<{ x: number; width: number; height: number }[]>([]);
 
   const activityTabs = useMemo(() => {

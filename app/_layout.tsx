@@ -7,13 +7,13 @@ import './global.css';
 export default function RootLayout() {
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
-      <HeroUINativeProvider config={{ devInfo: { stylingPrinciples: false } }}>
-        <FontProvider>
+      <FontProvider>
+        <HeroUINativeProvider config={{ devInfo: { stylingPrinciples: false } }}>
           <Stack>
-            <Stack.Screen name="(tab)" options={{ headerShown: false }}/>
+            <Stack.Screen name="(tab)" options={{ headerShown: false }} />
           </Stack>
-        </FontProvider>
-      </HeroUINativeProvider>
+        </HeroUINativeProvider>
+      </FontProvider>
     </GestureHandlerRootView>
   );
 }

@@ -73,19 +73,24 @@ const User = ({
                         }}
                     />
                     <Avatar.Fallback>
-                        <Text className="text-2xl font-poppins-semibold text-blue-500">
+                        <Text
+                            className="text-2xl"
+                            style={{ fontFamily: "PoppinsSemiBold", color: "#2b7fff"}}
+                        >
                             {name.substring(0, 2).toUpperCase()}
                         </Text>
                     </Avatar.Fallback>
                 </Avatar>
 
                 <View className="justify-center">
-                    <Text className="text-2xl font-poppins-semibold">
+                    <Text className="text-2xl"
+                        style={{ fontFamily: "PoppinsSemiBold" }}
+                    >
                         {name}
                     </Text>
                     <Text
-                        className="text-base font-poppins-medium"
-                        style={{ color: "#4a5565" }}
+                        className="text-base"
+                        style={{ fontFamily: "PoppinsMedium", color: "#4a5565" }}
                     >
                         {role}
                     </Text>

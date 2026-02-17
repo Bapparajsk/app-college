@@ -1,4 +1,3 @@
-import { Header } from "@/components/header";
 import { Navbar } from "@/components/nav";
 import { Tabs } from "expo-router";
 
@@ -7,7 +6,7 @@ export default function TabsLayout() {
         <Tabs
             tabBar={(props) => <Navbar {...props} />}
             screenOptions={{
-                header: (props) => <Header {...props} />,
+                headerShown: false
             }}
         >
             <Tabs.Screen name="index" options={{ title: "Home", animation: "fade"}}  />
