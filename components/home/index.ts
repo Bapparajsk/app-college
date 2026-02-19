@@ -1,5 +1,7 @@
+import ClassProgress from "./ClassProgress";
 import UserProgress from "./UserProgress";
 
 export {
-    UserProgress
+    ClassProgress, UserProgress
 };
+

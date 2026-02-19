@@ -1,18 +1,22 @@
 import { Header } from '@/components/header';
-import { UserProgress } from '@/components/home';
+import { ClassProgress, UserProgress } from '@/components/home';
 import { LinearGradient } from "expo-linear-gradient";
-import { View } from 'react-native';
+import { ScrollShadow } from 'heroui-native';
+import { ScrollView } from 'react-native';
 
 export default function index() {
-    return ( 
+    return (
         <LinearGradient
             colors={['#effaff', '#f4fbff', '#f9fcff', '#fdfdff', '#ffffff']}
             className="flex-1"
         >
-            <Header/>
-            <View className='p-2'>
-                <UserProgress/>
-            </View>
+            <ScrollShadow LinearGradientComponent={LinearGradient}>
+                <ScrollView className='p-2' >
+                    <Header />
+                    <UserProgress />
+                    <ClassProgress />
+                </ScrollView>
+            </ScrollShadow>
         </LinearGradient>
     )
 }

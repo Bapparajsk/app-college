@@ -1,4 +1,4 @@
-import { Ionicons } from "@expo/vector-icons";
+import { Feather, Ionicons } from "@expo/vector-icons";
 import { NavigationRoute, ParamListBase } from "@react-navigation/native";
 import { TouchableOpacity } from "react-native";
 import Animated, { LinearTransition } from "react-native-reanimated";
@@ -44,7 +44,7 @@ const TabButton = ({
 function getIconByRouteName(routeName: string, color: string) {
     switch (routeName) {
         case "index":
-            return <Ionicons name="home" size={22} color={color} />;
+            return <Feather name="home" size={22} color={color} />;
         case "routing":
             return <Ionicons name="navigate" size={22} color={color} />;
         case "community":
