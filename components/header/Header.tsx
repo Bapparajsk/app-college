@@ -10,7 +10,7 @@ const Header = () => {
                 <View className="justify-end">
                     <View className="w-full flex-row justify-between items-center">
                         <User
-                            name="John Doe" 
+                            name="John Doe"
                             role="Admin"
                             avatarUrl="https://i.pravatar.cc/300"
                         />
@@ -23,11 +23,7 @@ const Header = () => {
                                 />
                             </Button>
                             <Button hitSlop={5} variant="outline" size="lg" isIconOnly>
-                                <Ionicons
-                                    name="search-outline"
-                                    size={24}
-                                    color="#4a5565"
-                                />
+                                <Ionicons name="chatbubble-outline" size={24} color="#4a5565" />
                             </Button>
                         </View>
                     </View>
