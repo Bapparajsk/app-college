@@ -1,5 +1,5 @@
 import { Header } from '@/components/header';
-import { ClassProgress, Library, UserProgress } from '@/components/home';
+import { ClassProgress, Departments, Library, UserProgress } from '@/components/home';
 import { LinearGradient } from "expo-linear-gradient";
 import { ScrollShadow } from 'heroui-native';
 import { ScrollView } from 'react-native';
@@ -16,6 +16,7 @@ export default function index() {
                     <UserProgress />
                     <ClassProgress />
                     <Library/>
+                    <Departments/>
                 </ScrollView>
             </ScrollShadow>
         </LinearGradient>
