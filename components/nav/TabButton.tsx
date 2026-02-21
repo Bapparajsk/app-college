@@ -22,7 +22,7 @@ const TabButton = ({
     isSettingTab,
 }: TabButtonProps) => {
 
-    const activeBackgroundColor = isFocused ? "#000000" : "transparent"; // active tab background color
+    const activeBackgroundColor = isFocused ? "#000000" : "#d1d5dc"; // active tab background color
 
     return (
 

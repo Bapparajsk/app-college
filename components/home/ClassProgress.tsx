@@ -257,7 +257,7 @@ export default function ClassProgress() {
     };
 
     return (
-        <View style={{ height: 280, justifyContent: "center" }}>
+        <View style={{ height: 230, justifyContent: "center" }}>
             <ClassCard
                 index={0}
                 activeIndex={activeIndex}
