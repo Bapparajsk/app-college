@@ -12,12 +12,17 @@ import TabButton from "./TabButton";
 
 
 const CustomNavBar: React.FC<BottomTabBarProps> = ({ state, navigation }) => {
+
   const insets = useSafeAreaInsets();
+
   const position = useSharedValue(7); // left position of indicator
   const indicatorWidth = useSharedValue(0); // width of indicator
   const indicatorHeight = useSharedValue(0); // height of indicator
   const opacity = useSharedValue(1); // opacity of indicator
+
   const tabMeasurements = useRef<{ x: number; width: number; height: number }[]>([]);
+
+  const bottomInsets = useSharedValue(insets.bottom); // track bottom inset for responsive positioning
 
   const activityTabs = useMemo(() => {
     return state.routes.filter((route) => ["index", "routing", "community"].includes(route.name));
@@ -26,6 +31,26 @@ const CustomNavBar: React.FC<BottomTabBarProps> = ({ state, navigation }) => {
   const settingTab = useMemo(() => {
     return state.routes.find((route) => route.name === "setting");
   }, [state.routes]);
+
+  useEffect(() => {
+    const activeTab = tabMeasurements.current[state.index];
+    if (state.index === 3) {
+      opacity.value = withSpring(0);
+      return;
+    }
+
+    if (activeTab) {
+      position.value = withSpring(activeTab.x);
+      indicatorWidth.value = withSpring(activeTab.width);
+      indicatorHeight.value = withSpring(activeTab.height);
+      opacity.value = withSpring(1); // fade in indicator when active tab is measured
+    }
+
+  }, [state.index]);
+
+  useEffect(() => {
+    bottomInsets.value = withSpring(insets.bottom, { mass: 0.5, stiffness: 100, damping: 10 }); // smooth transition for bottom inset changes
+  }, [insets.bottom]);
 
   const handleTabLayout = (index: number, event: any) => {
     const { x, width, height } = event.nativeEvent.layout;
@@ -41,21 +66,15 @@ const CustomNavBar: React.FC<BottomTabBarProps> = ({ state, navigation }) => {
     }
   };
 
-  useEffect(() => {
-    const activeTab = tabMeasurements.current[state.index];
-    if(state.index === 3) {
-      opacity.value = withSpring(0);
-      return;
-    }  
 
-    if (activeTab) {
-      position.value = withSpring(activeTab.x);
-      indicatorWidth.value = withSpring(activeTab.width);
-      indicatorHeight.value = withSpring(activeTab.height);
-      opacity.value = withSpring(1); // fade in indicator when active tab is measured
-    }
+  const buttomTabStyles = useAnimatedStyle(() => ({ bottom: bottomInsets.value + 20 }));
 
-  }, [state.index]);
+  const indicatorStyle = useAnimatedStyle(() => ({
+    left: position.value,
+    width: indicatorWidth.value,
+    height: indicatorHeight.value,
+    opacity: opacity.value,
+  }));
 
   const handleTabPress = (route: NavigationRoute<ParamListBase, string>, key: string, isFocused: boolean, index: number) => {
     const event = navigation.emit({
@@ -69,7 +88,7 @@ const CustomNavBar: React.FC<BottomTabBarProps> = ({ state, navigation }) => {
     }
 
     const tab = tabMeasurements.current[index];
-    if(state.routes[index].name === "setting") {
+    if (state.routes[index].name === "setting") {
       opacity.value = withSpring(0); // fade out indicator when setting tab is pressed
       return;
     }
@@ -80,21 +99,15 @@ const CustomNavBar: React.FC<BottomTabBarProps> = ({ state, navigation }) => {
     }
   };
 
-  const indicatorStyle = useAnimatedStyle(() => ({
-    left: position.value,
-    width: indicatorWidth.value,
-    height: indicatorHeight.value,
-    opacity: opacity.value,
-  }));
 
   return (
-    <View
+    <Animated.View
       className="absolute flex-row justify-center items-center w-[80%] self-center"
-      style={{ bottom: insets.bottom + 20 }}
+      style={buttomTabStyles}
     >
       <View
         className="relative flex-row gap-2"
-        style={{ paddingHorizontal: 10, paddingVertical: 5, borderRadius: 999, backgroundColor: "#d1d5dc", marginRight: 10 , opacity: 0.9}} // white background for contrast
+        style={{ paddingHorizontal: 10, paddingVertical: 5, borderRadius: 999, backgroundColor: "#d1d5dc", marginRight: 10, opacity: 0.9 }} // white background for contrast
       >
         {/* Animated background indicator - behind tabs */}
         <Animated.View
@@ -125,7 +138,7 @@ const CustomNavBar: React.FC<BottomTabBarProps> = ({ state, navigation }) => {
           onPress={() => handleTabPress(settingTab, settingTab.key, state.routes[state.index].key === settingTab.key, state.routes.length - 1)}
         />
       )}
-    </View>
+    </Animated.View>
   );
 };
 
