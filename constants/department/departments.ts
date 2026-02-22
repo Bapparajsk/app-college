@@ -1,4 +1,4 @@
-import { Ionicons } from "@expo/vector-icons";
+import { FontAwesome, Ionicons } from "@expo/vector-icons";
 
 export enum DepartmentType {
     BTech = "BTech",
@@ -7,7 +7,7 @@ export enum DepartmentType {
     ITI = "ITI"
 }
 
-export enum DiplomaDepartments {
+export enum DiplomaDepartmentsEnum {
     ComputerScienceTechnology = "Computer Science & Technology",
     MechanicalEngineering = "Mechanical Engineering",
     ElectricalEngineering = "Electrical Engineering",
@@ -16,7 +16,16 @@ export enum DiplomaDepartments {
     AutomobileEngineering = "Automobile Engineering",
 }
 
-export enum BTechDepartments {
+export enum DiplomaDepartmentsSubNameEnum {
+    ComputerScienceTechnology = "CST",
+    MechanicalEngineering = "ME",
+    ElectricalEngineering = "EE",
+    ElectronicsTelecommunicationEngineering = "ETE",
+    CivilEngineering = "CE",
+    AutomobileEngineering = "AE",
+}
+
+export enum BTechDepartmentsEnum {
     ComputerScience = "Computer Science and Engineering",
     MechanicalEngineering = "Mechanical Engineering",
     ElectricalEngineering = "Electrical Engineering",
@@ -24,21 +33,40 @@ export enum BTechDepartments {
     CivilEngineering = "Civil Engineering",
 }
 
-export enum HealthScienceDepartments {
+export enum BTechDepartmentsSubNameEnum {
+    ComputerScience = "CSE",
+    MechanicalEngineering = "ME",
+    ElectricalEngineering = "EE",
+    MasterOfBusinessAdministration = "MBA",
+    CivilEngineering = "CE",
+}
+
+export enum HealthScienceDepartmentsEnum {
     BachelorOfMedicalLaboratoryTechnology = "Bachelor of Medical Laboratory Technology",
     BachelorOfHospitalAdministration = "Bachelor of Hospital Administration"
 }
 
-export enum ITIDepartments {
+export enum HealthScienceDepartmentsSubNameEnum {
+    BachelorOfMedicalLaboratoryTechnology = "BMLT",
+    BachelorOfHospitalAdministration = "BHA"
+}
+
+export enum ITIDepartmentsEnum {
     Fitter = "Fitter",
     Electrician = "Electrician"
 }
 
-export type DepartmentDetails = {
+export enum ITIDepartmentsSubNameEnum {
+    Fitter = "Fitter",
+    Electrician = "Electrician"
+}
+
+export type DepartmentDetailsType = {
     name: string;
     description: string;
+    subName: string;
     icon: {
-        IconProvider: typeof Ionicons;
+        IconProvider: typeof Ionicons | typeof FontAwesome;
         name: string;
     }
 }

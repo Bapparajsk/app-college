@@ -1,50 +1,56 @@
-import { Ionicons } from "@expo/vector-icons"
-import { BTechDepartments, DepartmentDetails, DepartmentType, DiplomaDepartments, HealthScienceDepartments, ITIDepartments } from "./departments"
+import { FontAwesome, Ionicons } from "@expo/vector-icons"
+import { BTechDepartmentsEnum, BTechDepartmentsSubNameEnum, DepartmentDetailsType, DepartmentType, DiplomaDepartmentsEnum, DiplomaDepartmentsSubNameEnum, HealthScienceDepartmentsEnum, HealthScienceDepartmentsSubNameEnum, ITIDepartmentsEnum, ITIDepartmentsSubNameEnum } from "./departments"
 
-export const DiplomaDepartmentsDetails: Record<DiplomaDepartments, DepartmentDetails> = {
-    [DiplomaDepartments.ComputerScienceTechnology]: {
-        name: DiplomaDepartments.ComputerScienceTechnology,
+export const DiplomaDepartmentsDetails: Record<DiplomaDepartmentsEnum, DepartmentDetailsType> = {
+    [DiplomaDepartmentsEnum.ComputerScienceTechnology]: {
+        name: DiplomaDepartmentsEnum.ComputerScienceTechnology,
         description: "Focuses on the study of computer science and technology, including programming, software development, and computer hardware.",
+        subName: DiplomaDepartmentsSubNameEnum.ComputerScienceTechnology,
         icon: {
             IconProvider: Ionicons,
             name: "laptop-outline"
         }
     },
-    [DiplomaDepartments.MechanicalEngineering]: {
-        name: DiplomaDepartments.MechanicalEngineering,
+    [DiplomaDepartmentsEnum.MechanicalEngineering]: {
+        name: DiplomaDepartmentsEnum.MechanicalEngineering,
         description: "Covers the design, analysis, manufacturing, and maintenance of mechanical systems.",
+        subName: DiplomaDepartmentsSubNameEnum.MechanicalEngineering,
         icon: {
             IconProvider: Ionicons,
             name: "settings-outline"
         }
     },
-    [DiplomaDepartments.ElectricalEngineering]: {
-        name: DiplomaDepartments.ElectricalEngineering,
+    [DiplomaDepartmentsEnum.ElectricalEngineering]: {
+        name: DiplomaDepartmentsEnum.ElectricalEngineering,
         description: "Involves the study of electricity, electronics, and electromagnetism.",
+        subName: DiplomaDepartmentsSubNameEnum.ElectricalEngineering,
         icon: {
             IconProvider: Ionicons,
             name: "flash-outline"
         }
     },
-    [DiplomaDepartments.ElectronicsTelecommunicationEngineering]: {
-        name: DiplomaDepartments.ElectronicsTelecommunicationEngineering,
+    [DiplomaDepartmentsEnum.ElectronicsTelecommunicationEngineering]: {
+        name: DiplomaDepartmentsEnum.ElectronicsTelecommunicationEngineering,
         description: "Focuses on electronic devices, circuits, communication equipment like transmitters, receivers, integrated circuits (IC).",
+        subName: DiplomaDepartmentsSubNameEnum.ElectronicsTelecommunicationEngineering,
         icon: {
             IconProvider: Ionicons,
             name: "wifi-outline"
         }
     },
-    [DiplomaDepartments.CivilEngineering]: {
-        name: DiplomaDepartments.CivilEngineering,
+    [DiplomaDepartmentsEnum.CivilEngineering]: {
+        name: DiplomaDepartmentsEnum.CivilEngineering,
         description: "Deals with the design, construction, and maintenance of the physical and naturally built environment.",
+        subName: DiplomaDepartmentsSubNameEnum.CivilEngineering,
         icon: {
             IconProvider: Ionicons,
             name: "business"
         }
     },
-    [DiplomaDepartments.AutomobileEngineering]: {
-        name: DiplomaDepartments.AutomobileEngineering,
+    [DiplomaDepartmentsEnum.AutomobileEngineering]: {
+        name: DiplomaDepartmentsEnum.AutomobileEngineering,
         description: "Focuses on the design, development, manufacturing, and testing of automobiles.",
+        subName: DiplomaDepartmentsSubNameEnum.AutomobileEngineering,
         icon: {
             IconProvider: Ionicons,
             name: "car-outline"
@@ -52,42 +58,47 @@ export const DiplomaDepartmentsDetails: Record<DiplomaDepartments, DepartmentDet
     }
 }
 
-export const BTechDepartmentsDetails: Record<BTechDepartments, DepartmentDetails> = {
-    [BTechDepartments.ComputerScience]: {
-        name: BTechDepartments.ComputerScience,
+export const BTechDepartmentsDetails: Record<BTechDepartmentsEnum, DepartmentDetailsType> = {
+    [BTechDepartmentsEnum.ComputerScience]: {
+        name: BTechDepartmentsEnum.ComputerScience,
         description: "Focuses on the study of computer science and engineering, including programming, software development, and computer hardware.",
+        subName: BTechDepartmentsSubNameEnum.ComputerScience,
         icon: {
             IconProvider: Ionicons,
             name: "laptop-outline"
         }
     },
-    [BTechDepartments.MechanicalEngineering]: {
-        name: BTechDepartments.MechanicalEngineering,
+    [BTechDepartmentsEnum.MechanicalEngineering]: {
+        name: BTechDepartmentsEnum.MechanicalEngineering,
         description: "Covers the design, analysis, manufacturing, and maintenance of mechanical systems.",
+        subName: BTechDepartmentsSubNameEnum.MechanicalEngineering,
         icon: {
             IconProvider: Ionicons,
             name: "settings-outline"
         }
     },
-    [BTechDepartments.ElectricalEngineering]: {
-        name: BTechDepartments.ElectricalEngineering,
+    [BTechDepartmentsEnum.ElectricalEngineering]: {
+        name: BTechDepartmentsEnum.ElectricalEngineering,
         description: "Involves the study of electricity, electronics, and electromagnetism.",
+        subName: BTechDepartmentsSubNameEnum.ElectricalEngineering,
         icon: {
             IconProvider: Ionicons,
             name: "flash-outline"
         }
     },
-    [BTechDepartments.MasterOfBusinessAdministration]: {
-        name: BTechDepartments.MasterOfBusinessAdministration,
+    [BTechDepartmentsEnum.MasterOfBusinessAdministration]: {
+        name: BTechDepartmentsEnum.MasterOfBusinessAdministration,
         description: "Focuses on business management, administration, and leadership skills.",
+        subName: BTechDepartmentsSubNameEnum.MasterOfBusinessAdministration,
         icon: {
             IconProvider: Ionicons,
             name: "briefcase-outline"
         }
     },
-    [BTechDepartments.CivilEngineering]: {
-        name: BTechDepartments.CivilEngineering,
+    [BTechDepartmentsEnum.CivilEngineering]: {
+        name: BTechDepartmentsEnum.CivilEngineering,
         description: "Deals with the design, construction, and maintenance of the physical and naturally built environment.",
+        subName: BTechDepartmentsSubNameEnum.CivilEngineering,
         icon: {
             IconProvider: Ionicons,
             name: "business"
@@ -95,37 +106,41 @@ export const BTechDepartmentsDetails: Record<BTechDepartments, DepartmentDetails
     }
 }
 
-export const HealthScienceDepartmentsDetails: Record<HealthScienceDepartments, DepartmentDetails> = {
-    [HealthScienceDepartments.BachelorOfMedicalLaboratoryTechnology]: {
-        name: HealthScienceDepartments.BachelorOfMedicalLaboratoryTechnology,
+export const HealthScienceDepartmentsDetails: Record<HealthScienceDepartmentsEnum, DepartmentDetailsType> = {
+    [HealthScienceDepartmentsEnum.BachelorOfMedicalLaboratoryTechnology]: {
+        name: HealthScienceDepartmentsEnum.BachelorOfMedicalLaboratoryTechnology,
         description: "Focuses on the study of medical laboratory technology, including clinical laboratory science, medical technology, and laboratory management.",
+        subName: HealthScienceDepartmentsSubNameEnum.BachelorOfMedicalLaboratoryTechnology,
         icon: {
             IconProvider: Ionicons,
             name: "medkit-outline"
         }
     },
-    [HealthScienceDepartments.BachelorOfHospitalAdministration]: {
-        name: HealthScienceDepartments.BachelorOfHospitalAdministration,
+    [HealthScienceDepartmentsEnum.BachelorOfHospitalAdministration]: {
+        name: HealthScienceDepartmentsEnum.BachelorOfHospitalAdministration,
         description: "Focuses on the management and administration of hospitals and healthcare facilities.",
+        subName: HealthScienceDepartmentsSubNameEnum.BachelorOfHospitalAdministration,
         icon: {
-            IconProvider: Ionicons,
-            name: "hospital-outline"
+            IconProvider: FontAwesome,
+            name: "hospital-o"
         }
     }
 }
 
-export const ITIDepartmentsDetails: Record<ITIDepartments, DepartmentDetails> = {
-    [ITIDepartments.Fitter]: {
-        name: ITIDepartments.Fitter,
+export const ITIDepartmentsDetails: Record<ITIDepartmentsEnum, DepartmentDetailsType> = {
+    [ITIDepartmentsEnum.Fitter]: {
+        name: ITIDepartmentsEnum.Fitter,
         description: "Focuses on the study of fitting, which involves assembling, installing, and maintaining machinery and equipment.",
+        subName: ITIDepartmentsSubNameEnum.Fitter,
         icon: {
             IconProvider: Ionicons,
             name: "construct"
         }
     },
-    [ITIDepartments.Electrician]: {
-        name: ITIDepartments.Electrician,
+    [ITIDepartmentsEnum.Electrician]: {
+        name: ITIDepartmentsEnum.Electrician,
         description: "Focuses on the study of electrical work, including installation, maintenance, and repair of electrical systems.",
+        subName: ITIDepartmentsSubNameEnum.Electrician,
         icon: {
             IconProvider: Ionicons,
             name: "flash-outline"
@@ -133,7 +148,7 @@ export const ITIDepartmentsDetails: Record<ITIDepartments, DepartmentDetails> = 
     }
 }
 
-export const getAllDepartmentDetails = (): Record<DepartmentType, Record<string, DepartmentDetails>> => {
+export const getAllDepartmentDetails = (): Record<DepartmentType, Record<string, DepartmentDetailsType>> => {
     return {
         [DepartmentType.BTech]: BTechDepartmentsDetails,
         [DepartmentType.Diploma]: DiplomaDepartmentsDetails,
