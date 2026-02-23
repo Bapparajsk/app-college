@@ -11,7 +11,7 @@ export default function index() {
             className="flex-1"
         >
             <ScrollShadow LinearGradientComponent={LinearGradient}>
-                <ScrollView className='p-2' >
+                <ScrollView className='p-2' showsVerticalScrollIndicator={false}>
                     <Header />
                     <UserProgress />
                     <ClassProgress />
