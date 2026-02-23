@@ -20,7 +20,7 @@ export enum DiplomaDepartmentsSubNameEnum {
     ComputerScienceTechnology = "CST",
     MechanicalEngineering = "ME",
     ElectricalEngineering = "EE",
-    ElectronicsTelecommunicationEngineering = "ETE",
+    ElectronicsTelecommunicationEngineering = "ETCE",
     CivilEngineering = "CE",
     AutomobileEngineering = "AE",
 }
