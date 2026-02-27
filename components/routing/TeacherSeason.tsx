@@ -11,7 +11,7 @@ export default function TeacherSeason() {
         <Surface className='p-0'>
             <LinearGradient
                 colors={["#a5d7cf", "#abd8c4", "#b6d8b8", "#c5d6ae", "#d5d3a6"]}
-                className='p-4'
+                className='p-2 pb-4'
                 start={{ x: 0, y: 0 }}
                 end={{ x: 1, y: 1 }}
             >
@@ -22,9 +22,14 @@ export default function TeacherSeason() {
                 />
 
                 <View className='mt-4'>
-                    <Text style={{ fontFamily: "PoppinsSemiBold", fontSize: 26, color: "#000000" }}>
-                        Mathematics
-                    </Text>
+                    <View className='justify-start items-start'>
+                        <Text style={{ fontFamily: "PoppinsSemiBold", fontSize: 26, color: "#000000", lineHeight: 34 }}>
+                            MATH-II
+                        </Text>
+                        <Text style={{ fontFamily: "PoppinsSemiBold", fontSize: 18, color: "#595757", lineHeight: 24 }}>
+                            Mathematics
+                        </Text>
+                    </View>
                     <View className='flex-row justify-start items-center'>
                         <View className="mt-2 flex-row gap-2">
                             <Chip variant="tertiary" className='border border-border'>

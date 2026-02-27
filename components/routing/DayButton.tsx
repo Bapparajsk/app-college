@@ -1,8 +1,7 @@
-// import { AnimatedButton } from "@/components/ui/button";
-// import { shadows } from "@/theme/shadow";
 import { DayTypes, formatDay } from "@/utils/date";
-import React, { memo } from "react";
-import { Text, View } from "react-native";
+import { PressableFeedback, Surface } from "heroui-native";
+import { memo, useCallback, useMemo } from "react";
+import { Text } from "react-native";
 
 interface DayButtonProps {
     item: {
@@ -13,34 +12,55 @@ interface DayButtonProps {
     };
     isSelected: boolean;
     onPress: (day: DayTypes) => void;
+    isToday: boolean;
 }
+
 
 const DayButton = memo(function DayButton({
     item,
     isSelected,
     onPress,
+    isToday
 }: DayButtonProps) {
 
-    const handlePress = React.useCallback(() => {
+    const handlePress = useCallback(() => {
         onPress(item.day);
     }, [item.day, onPress]);
 
-    const formattedDay = React.useMemo(() =>
+    const formattedDay = useMemo(() =>
         formatDay(item.day),
         [item.day]
     );
 
+    const buttonStyle = useMemo(() => {
+        if (isSelected) {
+            return {
+                backgroundColor: "#000000",
+                transform: [{ scale: 0.95 }],
+            };
+        } else if (isToday) {
+            return {
+                backgroundColor: "#E5E7EB",
+            };
+        } else {
+            return {
+                backgroundColor: "#FFFFFF",
+            };
+        }
+    }, [isSelected, isToday]);
+
     return (
-        <View
-            // onPress={handlePress}
-            className="flex-1 mx-1"
+        <PressableFeedback
+            onPress={handlePress}
+            style={{
+                width: 55,
+                height: "auto"
+            }}
         >
-            <View
-                className="w-full h-full rounded-3xl items-center justify-center"
+            <Surface
+                className="w-full h-full rounded-3xl items-center justify-center p-0"
                 style={{
-                    backgroundColor: isSelected ? "#000000" : "#FFFFFF",
-                    transform: [{ scale: isSelected ? 0.95 : 1 }],
-                    // ...shadows.md
+                    ...buttonStyle,
                 }}
             >
                 <Text
@@ -50,13 +70,13 @@ const DayButton = memo(function DayButton({
                     {formattedDay}
                 </Text>
                 <Text
-                    className="font-inter text-sm"
+                    className="font-inter-semibold text-sm"
                     style={{ color: isSelected ? "#FFFFFF" : "#6B7280" }}
                 >
                     {item.date.day}
                 </Text>
-            </View>
-        </View>
+            </Surface>
+        </PressableFeedback>
     );
 });
 
