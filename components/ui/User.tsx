@@ -1,68 +1,27 @@
-import { Avatar } from "heroui-native";
-import { Pressable, Text, View } from "react-native";
-import Animated, {
-    useAnimatedStyle,
-    useSharedValue,
-    withSpring,
-    withTiming,
-} from "react-native-reanimated";
+import { Avatar, AvatarRootProps, PressableFeedback, PressableFeedbackProps } from "heroui-native";
+import { Text, View } from "react-native";
 
-export type UserProps = {
-    name: string;
-    role: string;
-    avatarUrl?: string;
-    onPress?: () => void;
-    withOpacity?: boolean; // optional control
+export type UserProps = PressableFeedbackProps & {
+    avatarProps?: AvatarRootProps & {
+        name: string;
+        userRole: string;
+        avatarUrl?: string;
+        nameStyle?: object;
+        roleStyle?: object;
+    };
 };
 
-const AnimatedPressable = Animated.createAnimatedComponent(Pressable);
 
-const User = ({
-    name,
-    role,
-    avatarUrl,
-    onPress,
-    withOpacity = false,
-}: UserProps) => {
+const User = (props: UserProps) => {
 
-    const scale = useSharedValue(1);
-    const opacity = useSharedValue(1);
+    const { avatarProps, ...rest } = props;
+    const { name, userRole, avatarUrl, nameStyle, roleStyle, ...restavatar } = avatarProps || {};
 
-    const animatedStyle = useAnimatedStyle(() => {
-        return {
-            transform: [{ scale: scale.value }],
-            opacity: opacity.value,
-        };
-    });
-
-    const handlePressIn = () => {
-        scale.value = withSpring(0.96, {
-            damping: 15,
-            stiffness: 200,
-        });
-
-        if (withOpacity) {
-            opacity.value = withTiming(0.7, { duration: 150 });
-        }
-    };
-
-    const handlePressOut = () => {
-        scale.value = withSpring(1);
-
-        if (withOpacity) {
-            opacity.value = withTiming(1, { duration: 150 });
-        }
-    };
 
     return (
-        <AnimatedPressable
-            onPress={onPress}
-            onPressIn={handlePressIn}
-            onPressOut={handlePressOut}
-            style={animatedStyle}
-        >
+        <PressableFeedback {...rest} >
             <View className="w-full flex-row gap-2">
-                <Avatar alt="user" size="lg">
+                <Avatar size="lg" alt="user" {...restavatar}>
                     <Avatar.Image
                         source={{ uri: avatarUrl }}
                         animation={{
@@ -77,26 +36,26 @@ const User = ({
                             className="text-2xl"
                             style={{ fontFamily: "PoppinsSemiBold", color: "#2b7fff"}}
                         >
-                            {name.substring(0, 2).toUpperCase()}
+                            {name?.substring(0, 2).toUpperCase()}
                         </Text>
                     </Avatar.Fallback>
                 </Avatar>
 
                 <View className="justify-center">
                     <Text className="text-2xl"
-                        style={{ fontFamily: "PoppinsSemiBold" }}
+                        style={{ fontFamily: "PoppinsSemiBold", ...nameStyle }}
                     >
                         {name}
                     </Text>
                     <Text
                         className="text-base"
-                        style={{ fontFamily: "PoppinsMedium", color: "#4a5565" }}
+                        style={{ fontFamily: "PoppinsMedium", color: "#4a5565", ...roleStyle }}
                     >
-                        {role}
+                        {userRole}
                     </Text>
                 </View>
             </View>
-        </AnimatedPressable>
+        </PressableFeedback>
     );
 };
 

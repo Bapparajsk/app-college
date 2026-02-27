@@ -1,4 +1,4 @@
-import { Feather, Ionicons } from "@expo/vector-icons";
+import { Ionicons } from "@expo/vector-icons";
 import { Card } from "heroui-native/card";
 import { Chip } from "heroui-native/chip";
 import React from "react";
@@ -16,6 +16,7 @@ import Animated, {
     withTiming
 } from "react-native-reanimated";
 import { scheduleOnRN } from "react-native-worklets";
+import ClassTimeView from "../ui/ClassTimeView";
 
 const { width } = Dimensions.get("window");
 const THRESHOLD = width * 0.5;
@@ -165,44 +166,7 @@ const ClassCard = ({
                                 {index === 0 ? "Sujit Pathak" : "Ankit Sharma"}
                             </Text>
 
-                            <View
-                                style={{
-                                    backgroundColor: "#A5F1E9",
-                                    width: 160,
-                                    height: 50,
-                                    borderRadius: 999,
-                                    marginTop: 10,
-                                    padding: 2.5,
-                                    flexDirection: "row",
-                                    alignItems: "center",
-                                    justifyContent: "space-between",
-                                }}
-                            >
-                                <View
-                                    style={{
-                                        aspectRatio: 1,
-                                        backgroundColor: "#ffffff",
-                                        height: 45,
-                                        borderRadius: 999,
-                                    }}
-                                >
-                                    <Feather
-                                        name="check"
-                                        size={24}
-                                        style={{ alignSelf: "center", marginTop: 10 }}
-                                    />
-                                </View>
-
-                                <Text
-                                    style={{
-                                        fontSize: 16,
-                                        fontFamily: "PoppinsSemiBold",
-                                        marginHorizontal: 10,
-                                    }}
-                                >
-                                    11AM - 12PM
-                                </Text>
-                            </View>
+                            <ClassTimeView time="11AM - 2PM"/>
 
                             <View className="mt-2 flex-row gap-2">
                                 <Chip variant="secondary">

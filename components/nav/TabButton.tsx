@@ -46,7 +46,7 @@ function getIconByRouteName(routeName: string, color: string) {
         case "index":
             return <Feather name="home" size={22} color={color} />;
         case "routing":
-            return <Ionicons name="navigate" size={22} color={color} />;
+            return <Ionicons name="calendar" size={22} color={color} />;
         case "community":
             return <Ionicons name="people" size={22} color={color} />;
         case "setting":
