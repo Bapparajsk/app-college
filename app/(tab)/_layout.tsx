@@ -6,7 +6,7 @@ export default function TabsLayout() {
         <Tabs
             tabBar={(props) => <Navbar {...props} />}
             screenOptions={{
-                headerShown: false
+                headerShown: false,
             }}
         >
             <Tabs.Screen name="index" options={{ title: "Home", animation: "fade"}}  />
