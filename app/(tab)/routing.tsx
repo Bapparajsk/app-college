@@ -1,12 +1,12 @@
 import { TeacherSeason } from '@/components/routing'
 import DayButton from '@/components/routing/DayButton'
 import RoutingList from '@/components/routing/RoutingList'
+import CustomLayout from '@/components/ui/template'
 import { DayTypes, getCurrentWeekDays, getDayAndYear, isToday } from '@/utils/date'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 import { PressableFeedback } from 'heroui-native'
 import React, { useCallback, useMemo, useState } from 'react'
 import { Text, View } from 'react-native'
-import Layout from '../template'
 
 export default function Routing() {
 
@@ -21,7 +21,7 @@ export default function Routing() {
 
 
     return (
-        <Layout>
+        <CustomLayout>
             <TeacherSeason />
             <View className="w-full h-10 flex-row items-center justify-between my-4">
                 <Text className="font-inter-semibold text-2xl">
@@ -58,6 +58,6 @@ export default function Routing() {
             </View>
             <RoutingList day={currDay} />
             <View className="h-30" />
-        </Layout>
+        </CustomLayout>
     )
 }

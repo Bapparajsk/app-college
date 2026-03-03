@@ -1,6 +1,5 @@
 import { MaterialIcons } from '@expo/vector-icons';
 import { Button, Card } from 'heroui-native';
-// import { PieChart } from 'lucide-react-native';
 import { Text, View } from 'react-native';
 import { PieChart } from "react-native-gifted-charts";
 

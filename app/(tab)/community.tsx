@@ -1,10 +1,10 @@
 import CommunityCard from '@/components/community/CommunityCard'
+import CustomLayout from '@/components/ui/template'
 import { FlashList } from '@shopify/flash-list'
 import { PressableFeedback, Surface } from 'heroui-native'
 import { SendIcon } from 'lucide-react-native'
 import React from 'react'
 import { Text, TextInput, View } from 'react-native'
-import Layout from '../template'
 
 export const communityTestData = [
     "Share Your Idea with the Community!",
@@ -21,14 +21,14 @@ export const communityTestData = [
 
 export default function community() {
     return (
-        <Layout>
+        <CustomLayout>
             <View className="w-full h-auto mt-4 max-w-[90%] px-2">
                 <Text style={{ fontFamily: "PoppinsSemiBold", fontSize: 34, lineHeight: 42 }}>
                     {communityTestData[Math.floor(Math.random() * communityTestData.length)]} 🚀
                 </Text>
             </View>
             <View className="w-full h-auto mt-6">
-                <Surface variant='tertiary' className="w-full h-14 flex-row p-1 rounded-full items-center justify-between gap-1">
+                <Surface className="w-full h-16 flex-row p-2 rounded-full items-center justify-between gap-1 bg-gray-300/70">
                     <View className="grow h-auto flex-1">
                         <TextInput
                             editable
@@ -52,6 +52,6 @@ export default function community() {
                 renderItem={() => <CommunityCard />}
                 contentContainerStyle={{ paddingTop: 30, paddingBottom: 100 }}
             />
-        </Layout>
+        </CustomLayout>
     )
 }

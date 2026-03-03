@@ -1,17 +1,16 @@
 import { ClassProgress, Departments, Library, Service, UserProgress } from '@/components/home';
-
+import CustomLayout from '@/components/ui/template';
 import { View } from 'react-native';
-import Layout from '../template';
 
 export default function index() {
     return (
-        <Layout>
+        <CustomLayout>
             <UserProgress />
             <ClassProgress />
             <Library />
             <Departments />
             <Service />
             <View className="h-30" />
-        </Layout>
+        </CustomLayout>
     )
 }
