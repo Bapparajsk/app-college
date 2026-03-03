@@ -12,7 +12,7 @@ export default function TabsLayout() {
             <Tabs.Screen name="index" options={{ title: "Home", animation: "fade"}}  />
             <Tabs.Screen name="routing" options={{ title: "Routing", animation: "fade",}}/>
             <Tabs.Screen name="community" options={{ title: "Community", animation: "fade",}}/>
-            <Tabs.Screen name="setting" options={{ title: "Setting", animation: "fade", headerShown: false }}/>
+            <Tabs.Screen name="setting" options={{ title: "Setting", animation: "fade"}}/>
         </Tabs>
     );
 } 

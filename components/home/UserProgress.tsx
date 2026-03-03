@@ -1,10 +1,8 @@
-import { Feather, MaterialIcons } from '@expo/vector-icons';
-import { Button, Card, Chip } from 'heroui-native';
+import { MaterialIcons } from '@expo/vector-icons';
+import { Button, Card } from 'heroui-native';
 // import { PieChart } from 'lucide-react-native';
 import { Text, View } from 'react-native';
 import { PieChart } from "react-native-gifted-charts";
-
-const GraphWidth = 300;
 
 const pieData = [
     {
@@ -22,12 +20,12 @@ const pieData = [
 const UserProgress = () => {
 
     return (
-        <Card >
+        <Card>
             <View className="gap-4">
                 <Card.Header>
                     <View className='w-full h-auto flex-row justify-between items-center'>
                         <Text style={{ fontFamily: 'PoppinsSemiBold' }} className="text-2xl">
-                            Attendance Progress
+                            Attendance
                         </Text>
                         <Button variant="outline" size="sm" isIconOnly>
                             <MaterialIcons
@@ -87,18 +85,6 @@ const UserProgress = () => {
                         ))}
                     </View>
                 </Card.Body>
-                <Card.Footer className="gap-3">
-                    <Chip color='danger' variant='soft'>
-                        <Text style={{ fontFamily: 'PoppinsRegular' }} className="text-sm">
-                            20% decrease from last month
-                        </Text>
-                        <Feather
-                            name="arrow-down-right"
-                            size={16}
-                            color="black"
-                        />
-                    </Chip>
-                </Card.Footer>
             </View>
         </Card>
     )
