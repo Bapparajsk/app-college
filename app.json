@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "college-app-v4",
-    "slug": "college-app-v4",
+    "slug": "college-app",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -19,7 +19,8 @@
         "monochromeImage": "./assets/images/android-icon-monochrome.png"
       },
       "edgeToEdgeEnabled": true,
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "package": "com.bapparaj.collegeapp"
     },
     "web": {
       "output": "static",
@@ -43,6 +44,13 @@
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
-    }
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "a24b2121-eb0b-45ae-83cc-b66fe2115daa"
+      }
+    },
+    "owner": "bapparaj"
   }
 }
